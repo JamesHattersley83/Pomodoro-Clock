@@ -1,2 +1,8 @@
 body {
-  background: #72daec; }
+  background: #37bfe5;
+  color: #000;
+  font-family: arial; }
+  body .container {
+    text-align: center; }
+  body h1 {
+    font-size: 3em; }

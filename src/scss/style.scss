@@ -1,5 +1,17 @@
-$body-bg: rgb(114, 218, 236);
+$primary-colour: #37bfe5;
+$secondary-colour: #000;
+$base-font: arial;
 
 body{
-    background: $body-bg;
+    background: $primary-colour;
+    color: $secondary-colour;
+    font-family: $base-font;
+
+    .container{
+        text-align: center;
+    }
+
+h1{
+    font-size: 3em;
+}
 }
