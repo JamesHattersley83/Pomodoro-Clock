@@ -1,8 +1,14 @@
 body {
-  background: #37bfe5;
-  color: #000;
-  font-family: arial; }
-  body .container {
-    text-align: center; }
-  body h1 {
-    font-size: 3em; }
+  margin: 0;
+  padding: 0;
+  background: #ff6347;
+  color: #fff;
+  font-family: "Montserrat", sans-serif; }
+
+.container {
+  margin: 0px auto;
+  width: 80%;
+  text-align: center; }
+
+h1 {
+  font-size: 3em; }

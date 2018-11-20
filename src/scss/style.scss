@@ -1,17 +1,21 @@
-$primary-colour: #37bfe5;
-$secondary-colour: #000;
-$base-font: arial;
+$primary-colour: #ff6347;
+$secondary-colour: #fff;
+$base-font: 'Montserrat', sans-serif;
 
 body{
+    margin: 0;
+    padding: 0;
     background: $primary-colour;
     color: $secondary-colour;
     font-family: $base-font;
+}
 
-    .container{
-        text-align: center;
-    }
+.container{
+    margin: 0px auto;
+    width: 80%;
+    text-align: center;
+}
 
 h1{
     font-size: 3em;
-}
 }
