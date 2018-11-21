@@ -19,3 +19,11 @@ body{
 h1{
     font-size: 3em;
 }
+
+button{
+    border: 1px solid $secondary-colour;
+    background: $primary-colour;
+    color: $secondary-colour;
+    padding: 0.5em;
+    font-size: 1em;
+}

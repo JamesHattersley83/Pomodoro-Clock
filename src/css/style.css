@@ -12,3 +12,10 @@ body {
 
 h1 {
   font-size: 3em; }
+
+button {
+  border: 1px solid #fff;
+  background: #ff6347;
+  color: #fff;
+  padding: 0.5em;
+  font-size: 1em; }
