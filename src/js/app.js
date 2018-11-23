@@ -1,10 +1,10 @@
 // variables
-const countdown = 0;
-const default_session = 25;
-const default_break = 5;
+let countdown = 0;
+let default_session = 25;
+let default_break = 5;
 let seconds = 1500;
 let isPaused = true;
-let isStart = true;
+let isBreak = true;
 
 // select html and store variables
 const session_decrement = document.querySelector('#session-decrement');
@@ -15,13 +15,37 @@ const start_btn = document.querySelector('#start_stop');
 const pause_btn = document.querySelector('#pause');
 const reset_btn = document.querySelector('#reset');
 const time_display = document.querySelector('#time-left');
-document.querySelector('#session-length').innerHTML = '25';
-document.querySelector('#break-length').innerHTML = '5';
+document.querySelector('#session-length').innerHTML = `${default_session}`;
+document.querySelector('#break-length').innerHTML = `${default_break}`;
 
-// event listeners
-session_decrement.addEventListener('click', function(){
-    console.log('button clicked');
+// event listeners for work and break
+session_decrement.addEventListener('click', () => {
+    if (default_session > 0) {
+        default_session = default_session -5;
+        document.querySelector('#session-length').innerHTML = `${default_session}`;
+    }
 })
 
-// functions
+session_increment.addEventListener('click', () => {
+    if (default_session < 25) {
+        default_session = default_session + 5;
+        document.querySelector('#session-length').innerHTML = `${default_session}`;
+    }
+})
+
+break_decrement.addEventListener('click', () => {
+    if (default_break > 0) {
+        default_break -- ;
+        document.querySelector('#break-length').innerHTML = `${default_break}`;
+    }
+})
+
+break_increment.addEventListener('click', () => {
+    if (default_break < 5) {
+        default_break ++ ;
+        document.querySelector('#break-length').innerHTML = `${default_break}`;
+    }
+})
+
+// functions for start and reset buttons
 
