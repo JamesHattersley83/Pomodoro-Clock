@@ -1,10 +1,10 @@
 // variables
-let countdown = 0;
+let countdown;
 let default_session = 25;
 let default_break = 5;
-let seconds = 1500;
 let isPaused = true;
 let isBreak = true;
+let seconds = 1500;
 
 // select html and store variables
 const session_decrement = document.querySelector('#session-decrement');
@@ -49,3 +49,38 @@ break_increment.addEventListener('click', () => {
 
 // functions for start and reset buttons
 
+function timer(seconds) {
+    const now = Date.now();
+    const then = now + seconds * 1000;
+    displayTimeLeft(seconds);
+
+    countdown = setInterval(() => {
+        const secondsLeft = Math.round((then - Date.now()) / 1000);
+        // check if we need to stop the timer
+        if(secondsLeft < 0) {
+            clearInterval(countdown);
+            return;
+        }
+        // display seconds
+        displayTimeLeft(secondsLeft);
+    }, 1000);
+}
+
+function displayTimeLeft(seconds){
+    const minutes = Math.floor(seconds / 60);
+    const reminderSeconds = seconds % 60;
+    const display = `${minutes}:${reminderSeconds < 10 ? '0' : ''}${reminderSeconds}`;
+    time_display.textContent = display;
+}
+
+start_btn.addEventListener('click', () => {
+    timer(seconds);
+});
+
+pause_btn.addEventListener('click', () => {
+    // pause timer
+})
+
+reset_btn.addEventListener('click', () => {
+    // reset timer
+})
