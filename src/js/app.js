@@ -2,7 +2,7 @@
 let countdown;
 let default_session = 25;
 let default_break = 5;
-let isPaused = true;
+let isPaused = false;
 let isBreak = true;
 let seconds = 1500;
 
@@ -73,14 +73,19 @@ function displayTimeLeft(seconds){
     time_display.textContent = display;
 }
 
+
 start_btn.addEventListener('click', () => {
+    // start timer
     timer(seconds);
-});
+})
 
 pause_btn.addEventListener('click', () => {
     // pause timer
+    clearInterval(countdown);
+    return;
 })
 
 reset_btn.addEventListener('click', () => {
     // reset timer
+    displayTimeLeft(seconds);
 })
