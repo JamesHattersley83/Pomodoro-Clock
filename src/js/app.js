@@ -4,7 +4,7 @@ let default_session = 25;
 let default_break = 5;
 let isPaused = false;
 let isBreak = true;
-let seconds;
+let seconds = 1500;
 
 // select html and store variables
 const session_decrement = document.querySelector('#session-decrement');
@@ -23,6 +23,7 @@ session_decrement.addEventListener('click', () => {
     if (default_session > 5) {
         default_session = default_session -5;
         updateSeconds(default_session);
+        displayTimeLeft(seconds);
         document.querySelector('#session-length').innerHTML = `${default_session}`;
     }
 })
@@ -31,6 +32,7 @@ session_increment.addEventListener('click', () => {
     if (default_session < 25) {
         default_session = default_session + 5;
         updateSeconds(default_session);
+        displayTimeLeft(seconds);
         document.querySelector('#session-length').innerHTML = `${default_session}`;
     }
 })
@@ -80,6 +82,7 @@ function displayTimeLeft(seconds){
     const reminderSeconds = seconds % 60;
     const display = `${minutes}:${reminderSeconds < 10 ? '0' : ''}${reminderSeconds}`;
     time_display.textContent = display;
+    console.log(seconds);
 }
 
 
@@ -97,4 +100,5 @@ pause_btn.addEventListener('click', () => {
 reset_btn.addEventListener('click', () => {
     // reset timer
     displayTimeLeft(seconds);
+    console.log(seconds);
 })
