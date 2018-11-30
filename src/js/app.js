@@ -4,7 +4,7 @@ let default_session = 25;
 let default_break = 5;
 let isPaused = false;
 let isBreak = true;
-let seconds = 1500;
+let seconds;
 
 // select html and store variables
 const session_decrement = document.querySelector('#session-decrement');
@@ -20,8 +20,9 @@ document.querySelector('#break-length').innerHTML = `${default_break}`;
 
 // event listeners for work and break
 session_decrement.addEventListener('click', () => {
-    if (default_session > 0) {
+    if (default_session > 5) {
         default_session = default_session -5;
+        updateSeconds(default_session);
         document.querySelector('#session-length').innerHTML = `${default_session}`;
     }
 })
@@ -29,13 +30,15 @@ session_decrement.addEventListener('click', () => {
 session_increment.addEventListener('click', () => {
     if (default_session < 25) {
         default_session = default_session + 5;
+        updateSeconds(default_session);
         document.querySelector('#session-length').innerHTML = `${default_session}`;
     }
 })
 
 break_decrement.addEventListener('click', () => {
-    if (default_break > 0) {
+    if (default_break > 1) {
         default_break -- ;
+        updateSeconds(default_break);
         document.querySelector('#break-length').innerHTML = `${default_break}`;
     }
 })
@@ -43,11 +46,17 @@ break_decrement.addEventListener('click', () => {
 break_increment.addEventListener('click', () => {
     if (default_break < 5) {
         default_break ++ ;
+        updateSeconds(default_break);
         document.querySelector('#break-length').innerHTML = `${default_break}`;
     }
 })
 
 // functions for start and reset buttons
+
+function updateSeconds(newSessionLength) {
+    seconds = newSessionLength * 60;
+    console.log(seconds);
+}
 
 function timer(seconds) {
     const now = Date.now();
