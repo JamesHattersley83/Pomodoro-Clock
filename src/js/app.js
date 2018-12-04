@@ -1,8 +1,8 @@
 // variables
-let countdown;
+let countdown = 0;
 let default_session = 25;
 let default_break = 5;
-let isPaused = false;
+let isPaused = true;
 let isBreak = true;
 let seconds = 1500;
 
@@ -20,8 +20,8 @@ document.querySelector('#break-length').innerHTML = `${default_break}`;
 
 // event listeners for work and break
 session_decrement.addEventListener('click', () => {
-    if (default_session > 5) {
-        default_session = default_session -5;
+    if (default_session > 0) {
+        default_session = default_session -1;
         updateSeconds(default_session);
         displayTimeLeft(seconds);
         document.querySelector('#session-length').innerHTML = `${default_session}`;
@@ -30,7 +30,7 @@ session_decrement.addEventListener('click', () => {
 
 session_increment.addEventListener('click', () => {
     if (default_session < 25) {
-        default_session = default_session + 5;
+        default_session = default_session + 1;
         updateSeconds(default_session);
         displayTimeLeft(seconds);
         document.querySelector('#session-length').innerHTML = `${default_session}`;
@@ -57,7 +57,6 @@ break_increment.addEventListener('click', () => {
 
 function updateSeconds(newSessionLength) {
     seconds = newSessionLength * 60;
-    console.log(seconds);
 }
 
 function timer(seconds) {
@@ -69,8 +68,8 @@ function timer(seconds) {
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         // check if we need to stop the timer
         if(secondsLeft < 0) {
+            document.querySelector('#timer-label').textContent = 'Break Time';
             clearInterval(countdown);
-            return;
         }
         // display seconds
         displayTimeLeft(secondsLeft);
@@ -100,5 +99,4 @@ pause_btn.addEventListener('click', () => {
 reset_btn.addEventListener('click', () => {
     // reset timer
     displayTimeLeft(seconds);
-    console.log(seconds);
 })
