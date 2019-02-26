@@ -1,51 +1,64 @@
 $primary-colour: #ff6347;
 $secondary-colour: #fff;
 $button-hover: #dbcbc9;
-$base-font: 'Montserrat', sans-serif;
+$base-font: "Montserrat", sans-serif;
 
-body{
-    margin: 0;
-    padding: 0;
-    background: $primary-colour;
-    color: $secondary-colour;
-    font-family: $base-font;
+body {
+  margin: 0;
+  padding: 0;
+  background: $primary-colour;
+  color: $secondary-colour;
+  font-family: $base-font;
 }
 
-.container{
-    margin: 0px auto;
-    width: 80%;
-    text-align: center;
+.container {
+  margin: 0px auto;
+  width: 80%;
+  text-align: center;
+
+  .session-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .session-length-area,
+  .session-break-area {
+    padding: 0 1rem;
+  }
 }
 
-h1{
-    font-size: 2.5em;
+h1 {
+  font-size: 2.5em;
 }
 
 #session-length,
 #break-length {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
-button:hover{
-    background: $button-hover;
+button:hover {
+  background: $button-hover;
 }
 
-#time-left{
-    font-size: 3em;
-    margin: 0 auto;
-    margin-bottom: 0.5em;
-    border: 2px solid $secondary-colour;
-    border-radius: 10px;
-    width: 200px;
+#time-left {
+  font-size: 3em;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  border: 2px solid $secondary-colour;
+  border-radius: 10px;
+  width: 200px;
 }
 
-button{
-    border: 1px solid $secondary-colour;
-    background: $secondary-colour;
-    color: #000;
-    padding: 0.5em;
-    font-size: 1em;
+button {
+  border: none;
+  background: $secondary-colour;
+  color: #000;
+  padding: 0.5em;
+  font-size: 1em;
 }
 
-
-    
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+}
